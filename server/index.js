@@ -23,6 +23,7 @@ app.get("/monkey", async (req, res) => {
 		res.status(400).send({
 			msg: "Need a name"
 		})
+		return
 	}
 	try {
 		if (name === "all") {
@@ -31,6 +32,7 @@ app.get("/monkey", async (req, res) => {
 				res.status(404).send({
 					msg: "No monkey found"
 				})
+				return
 			}
 			res.status(200).send({
 				monkey: monkey
@@ -43,6 +45,7 @@ app.get("/monkey", async (req, res) => {
 			res.status(404).send({
 				msg: "No monkey found"
 			})
+			return
 		}
 		res.status(200).send({
 			monkey: monkey
@@ -61,6 +64,7 @@ app.post("/monkey", async (req, res) => {
 		res.status(400).send({
 			msg: "Need a name"
 		})
+		return
 	}
 	try {
 		await createMonkey(name)
