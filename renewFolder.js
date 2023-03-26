@@ -12,7 +12,7 @@ const matrixInclude = files
   .map(file => ({ folder: file }));
 
 // Update the matrix include list in the workflow YAML file
-const workflowYamlFile = fs.readFileSync('.github/workflows/api-test.yaml', 'utf8');
+const workflowYamlFile = fs.readFileSync(`${process.env.GITHUB_WORKSPACE}/.github/workflows/api-test.yaml`, 'utf8');
 const newFolders = matrixInclude
   .map(i => `${i.folder}`)
   .filter(i => i != '.git' && i != '.github')
@@ -22,5 +22,4 @@ const updatedWorkflowYamlFile = workflowYamlFile.replace(
   `matrix:\n          directory: [${newFolders.join(', ')}]`,
 );
 
-console.log(`Updated workflow YAML file: ${updatedWorkflowYamlFile}`)
-fs.writeFileSync("./.github/workflows/api-test.yaml", updatedWorkflowYamlFile);
+fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/.github/workflows/api-test.yaml`, updatedWorkflowYamlFile);
