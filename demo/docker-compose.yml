@@ -16,7 +16,7 @@ services:
 
   server:
     container_name: server
-    build: ./server
+    build: .
     ports:
       - "3000:3000"
     depends_on:
