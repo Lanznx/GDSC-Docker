@@ -1,13 +1,17 @@
 name: Auto test whether the repo is working
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: ${{ github.actor }} is testing his/her repo 🚀
 
-on: [push, pull_request]
+on: 
+  pull_request:
+    types: [opened]
+  push:
+    branches: [main]
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        directory: [demo, student-a]
+        matrix:
+          directory: [demo, student-a, student-a copy, student-a copy 2, student-a copy 3, student-a copy 4, student-a copy 5, student-a copy 6]
 
     steps:
     - name: Checkout code
