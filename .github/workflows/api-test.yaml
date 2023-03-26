@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  update-test-yaml:
+  Prepare-matrix:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

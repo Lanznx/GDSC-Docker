@@ -4,6 +4,8 @@ const fs = require('fs');
 // Get the file list of the PR
 const files = fs.readdirSync(process.env.GITHUB_WORKSPACE + '/');
 
+console.log(`process.env.GITHUB_WORKSPACE: ${process.env.GITHUB_WORKSPACE}`)
+
 // Build the include list for the matrix
 const matrixInclude = files
   .filter(file => fs.statSync(file).isDirectory())
@@ -20,5 +22,5 @@ const updatedWorkflowYamlFile = workflowYamlFile.replace(
   `matrix:\n          directory: [${newFolders.join(', ')}]`,
 );
 
-
+console.log(`Updated workflow YAML file: ${updatedWorkflowYamlFile}`)
 fs.writeFileSync("./.github/workflows/api-test.yaml", updatedWorkflowYamlFile);
