@@ -17,6 +17,24 @@ jobs:
       - name: Update test yaml
         run: node renewFolder.js
 
+      - name: ls
+        run: ls {{github.workspace}}
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update test yaml
+          commit_options: '--no-verify'
+          commit_user_name: ${{ github.actor }}
+          commit_user_email: ${{ github.actor }}@users.noreply.github.com
+          commit_author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
   test:
     runs-on: ubuntu-latest
     strategy:
