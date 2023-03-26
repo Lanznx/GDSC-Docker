@@ -6,7 +6,17 @@ on:
     types: [opened]
   push:
     branches: [main]
+
 jobs:
+  update-test-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update test yaml
+        run: node renewFolder.js
+
   test:
     runs-on: ubuntu-latest
     strategy:

@@ -1,18 +1,3 @@
-// const fs = require('fs');
-
-// const files = fs.readdirSync("./");
-
-// const matrixInclude = files
-//   .filter((file) => fs.statSync(file).isDirectory())
-//   .map((folder) => { folder: folder });
-
-// const workflowYamlFile = fs.readFileSync("./.github/workflows/api-test.yaml", "utf8");
-// const updatedWorkflowYamlFile = workflowYamlFile.replace(
-//   /(matrix:\n\s+include:\n\s+-\s+folder:\s+\w+\n\s+)/,
-//   `$1${matrixInclude.map(i => `- folder: ${i.folder}\n`).join('')}`,
-// );
-
-// fs.writeFileSync("./.github/workflows/api-test.yaml", updatedWorkflowYamlFile);
 
 const fs = require('fs');
 
