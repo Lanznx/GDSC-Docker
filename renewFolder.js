@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 // Get the file list of the PR
-const files = fs.readdirSync('./');
+const files = fs.readdirSync(process.env.GITHUB_WORKSPACE + '/');
 
 // Build the include list for the matrix
 const matrixInclude = files

@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-          directory: [demo, student-a, student-a copy, student-a copy 2, student-a copy 3, student-a copy 4, student-a copy 5, student-a copy 6]
+          directory: [demo, student-a, student-acopy, student-acopy2]
 
     steps:
     - name: Checkout code
