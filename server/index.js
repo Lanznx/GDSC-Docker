@@ -3,7 +3,7 @@ const {
 	getAllMonkeys,
 	getMonkeyByName,
 	createMonkey
-} = require("./model/model")
+} = require("./model/monkey.model")
 const app = express()
 
 
@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/monkey", async (req, res) => {
+	console.log("get monkey")
 	const name = req.query.name
 	if(!name) {
 		res.status(400).send({
