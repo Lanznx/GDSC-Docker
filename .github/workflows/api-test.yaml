@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        directory: [demo]
+        directory: [demo, student-a]
 
     steps:
     - name: Checkout code
@@ -18,7 +18,8 @@ jobs:
         DIRECTORY: ${{ matrix.directory }}
       run: |
         cd $DIRECTORY
-        docker-compose up -d
+        docker compose up -d
         npm install
         npm run test
+        docker compose down
 
