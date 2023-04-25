@@ -15,7 +15,7 @@ services:
       start_period: 3s
 
   server:
-    container_name: server
+    container_name: monkey
     build: .
     ports:
       - "3000:3000"
